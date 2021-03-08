@@ -1,0 +1,220 @@
+version: 2.1
+jobs:
+  node:
+    working_directory: ~/Swimply_Mobile
+    docker:
+      - image: cimg/node:12.16
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+
+      - run: npx semantic-release
+
+      - run: |
+          echo "Build number is $CIRCLE_BUILD_NUM"
+          bin/inc_build_number.sh ${CIRCLE_BUILD_NUM}
+
+      - run: yarn install
+
+      - save_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          paths:
+            - ~/.cache/yarn
+
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
+
+      - persist_to_workspace:
+          root: ~/Swimply_Mobile
+          paths:
+            - node_modules
+            - package.json
+
+  build_ios:
+    working_directory: ~/Swimply_Mobile
+    macos:
+      xcode: 12.4.0
+    environment:
+      FL_OUTPUT_DIR: output
+
+    steps:
+      - checkout:
+          path: ~/Swimply_Mobile
+
+      - attach_workspace:
+          at: ~/Swimply_Mobile
+
+      - run:
+          command: bin/generate-credentials.sh ${STRIPE_KEY_US} ${STRIPE_KEY_AU}
+
+      - run:
+          command: openssl enc -in AuthKey_L7FMSN22CZ_Locked.p8 -aes-128-cbc -a -d -salt -pass pass:${AUTH_KEY_DECRYPTION_PASSWORD} -out AuthKey_L7FMSN22CZ.p8
+
+      - restore_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+
+      - run: yarn install
+
+      - save_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          paths:
+            - ~/.cache/yarn
+
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
+
+      - restore_cache:
+          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+
+      #Pods directory is ignored to match default RN setup, but can also check them into source control
+      #https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
+      - restore_cache:
+          key: pods-v1-{{ checksum "ios/Podfile.lock" }}-{{ arch }}
+
+      - run:
+          command: pod install
+          working_directory: ios
+
+      - run:
+          command: bundle install
+
+      - save_cache:
+          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+          paths:
+            - vendor/bundle
+
+      - save_cache:
+          key: pods-v1-{{ checksum "ios/Podfile.lock" }}-{{ arch }}
+          paths:
+            - ios/Pods
+
+      - run:
+          name: Fastlane
+          command: CI=true bundle exec fastlane cicd_setup skip_before:true
+
+      - run:
+          name: Fastlane
+          command: CI=true bundle exec fastlane $FASTLANE_LANE
+
+      - store_artifacts:
+          path: output
+
+      - store_test_results:
+          path: output/scan
+
+  android-build-and-test:
+    working_directory: ~/Swimply_Mobile
+    macos:
+      xcode: 11.2.0
+    steps:
+      - checkout:
+          path: ~/Swimply_Mobile
+
+      - attach_workspace:
+          at: ~/Swimply_Mobile
+
+      - run:
+          name: set ANDROID_SDK_ROOT
+          command: |
+            echo 'export ANDROID_SDK_ROOT=$HOME/android-tools'  >> $BASH_ENV
+
+      - restore_cache:
+          key: android=tools-v1-{{ checksum "bin/install-android-tools.sh" }}-{{ arch }}
+
+      - run:
+          name: install android tools
+          command: |
+            sh bin/install-android-tools.sh
+            echo 'export PATH=$ANDROID_SDK_ROOT/tools/bin:$PATH'  >> $BASH_ENV
+            echo 'export PATH=$ANDROID_SDK_ROOT/tools:$PATH'  >> $BASH_ENV
+            echo 'export PATH=$ANDROID_SDK_ROOT/platform-tools:$PATH'  >> $BASH_ENV
+            echo 'export PATH=$ANDROID_SDK_ROOT/emulator:$PATH'  >> $BASH_ENV
+            source $BASH_ENV
+            sdkmanager --list
+
+      - save_cache:
+          key: android=tools-v1-{{ checksum "bin/install-android-tools.sh" }}-{{ arch }}
+          paths:
+            - /Users/distiller/android-tools
+
+      - run:
+          command: bin/generate-credentials.sh ${STRIPE_KEY_US} ${STRIPE_KEY_AU}
+
+      - restore_cache:
+          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+
+      - run: bundle install
+
+      - save_cache:
+          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Fastlane
+          command: CI=true bundle exec fastlane cicd_setup skip_before:true
+
+      - run:
+          name: Fastlane
+          command: CI=true bundle exec fastlane $FASTLANE_LANE_ANDROID
+
+workflows:
+  node-android-ios-staging:
+    jobs:
+      - node:
+          filters:
+            branches:
+              only:
+                - dev
+      - android-build-and-test:
+          requires:
+            - node
+          context: STAGING_CONTEXT
+          filters:
+            branches:
+              only:
+                - dev
+      - build_ios:
+          requires:
+            - node
+          context: STAGING_CONTEXT
+          filters:
+            branches:
+              only:
+                - dev
+  node-android-ios-prod:
+    jobs:
+      - node:
+          filters:
+            branches:
+              only:
+                - master
+      # - android-build-and-test:
+      #     requires:
+      #       - node
+      #     context: PROD_CONTEXT
+      #     filters:
+      #       branches:
+      #         only:
+      #           - master
+      - build_ios:
+          requires:
+            - node
+          context: PROD_CONTEXT
+          filters:
+            branches:
+              only:
+                - master
