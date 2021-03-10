@@ -2,8 +2,8 @@ import * as React from 'react'
 
 import { Screen, Text } from 'components'
 
-export default function Login () {
+export function Login () {
   return <Screen>
-    <Text preset='header'>Login</Text>
+    <Text preset='h1'>Login</Text>
   </Screen>
 }

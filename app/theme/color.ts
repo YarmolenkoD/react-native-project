@@ -1,4 +1,5 @@
 import { palette } from "./palette"
+import { ColorTheme } from "types"
 
 /**
  * Roles for colors.  Prefer using these over the palette.  It makes it easier
@@ -9,7 +10,114 @@ import { palette } from "./palette"
  * If you have a specific use-case, like a spinner color.  It makes more sense to
  * put that in the <Spinner /> component.
  */
+
 export const color = {
+  light: {
+    /**
+     * The palette is available to use, but prefer using the name.
+     */
+    palette,
+    /**
+     * A helper for making something see-thru. Use sparingly as many layers of transparency
+     * can cause older Android devices to slow down due to the excessive compositing required
+     * by their under-powered GPUs.
+     */
+    transparent: "rgba(0, 0, 0, 0)",
+    /**
+     * The screen background.
+     */
+    background: palette.white,
+    /**
+     * The main tinting color.
+     */
+    primary: palette.summerSun,
+    /**
+     * The main tinting color, but darker.
+     */
+    primaryDarker: palette.darkSummerSun,
+    /**
+     * A subtle color used for borders and lines.
+     */
+    line: palette.grayLightest,
+    /**
+     * The default color of text in many components.
+     */
+    text: palette.textDark,
+    /**
+     * Secondary information.
+     */
+    dim: palette.grayLight,
+    /**
+     * Error messages and icons.
+     */
+    error: palette.summerSun,
+
+    /**
+     * Storybook background for Text stories, or any stories where
+     * the text color is color.text, which is white by default, and does not show
+     * in Stories against the default white background
+     */
+    storybookDarkBg: palette.textDark,
+
+    /**
+     * Storybook text color for stories that display Text components against the
+     * white background
+     */
+    storybookTextColor: palette.textDark,
+  } as ColorTheme,
+  dark: {
+    /**
+     * The palette is available to use, but prefer using the name.
+     */
+    palette,
+    /**
+     * A helper for making something see-thru. Use sparingly as many layers of transparency
+     * can cause older Android devices to slow down due to the excessive compositing required
+     * by their under-powered GPUs.
+     */
+    transparent: "rgba(0, 0, 0, 0)",
+    /**
+     * The screen background.
+     */
+    background: palette.white,
+    /**
+     * The main tinting color.
+     */
+    primary: palette.summerSun,
+    /**
+     * The main tinting color, but darker.
+     */
+    primaryDarker: palette.darkSummerSun,
+    /**
+     * A subtle color used for borders and lines.
+     */
+    line: palette.grayLightest,
+    /**
+     * The default color of text in many components.
+     */
+    text: palette.textDark,
+    /**
+     * Secondary information.
+     */
+    dim: palette.grayLight,
+    /**
+     * Error messages and icons.
+     */
+    error: palette.summerSun,
+
+    /**
+     * Storybook background for Text stories, or any stories where
+     * the text color is color.text, which is white by default, and does not show
+     * in Stories against the default white background
+     */
+    storybookDarkBg: palette.textDark,
+
+    /**
+     * Storybook text color for stories that display Text components against the
+     * white background
+     */
+    storybookTextColor: palette.textDark,
+  } as ColorTheme,
   /**
    * The palette is available to use, but prefer using the name.
    */
@@ -27,38 +135,38 @@ export const color = {
   /**
    * The main tinting color.
    */
-  primary: palette.lightBlue,
+  primary: palette.summerSun,
   /**
    * The main tinting color, but darker.
    */
-  primaryDarker: palette.orangeDarker,
+  primaryDarker: palette.darkSummerSun,
   /**
    * A subtle color used for borders and lines.
    */
-  line: palette.offWhite,
+  line: palette.grayLightest,
   /**
    * The default color of text in many components.
    */
-  text: palette.white,
+  text: palette.textDark,
   /**
    * Secondary information.
    */
-  dim: palette.lightGrey,
+  dim: palette.grayLight,
   /**
    * Error messages and icons.
    */
-  error: palette.angry,
+  error: palette.summerSun,
 
   /**
    * Storybook background for Text stories, or any stories where
    * the text color is color.text, which is white by default, and does not show
    * in Stories against the default white background
    */
-  storybookDarkBg: palette.black,
+  storybookDarkBg: palette.textDark,
 
   /**
    * Storybook text color for stories that display Text components against the
    * white background
    */
-  storybookTextColor: palette.black,
+  storybookTextColor: palette.textDark,
 }

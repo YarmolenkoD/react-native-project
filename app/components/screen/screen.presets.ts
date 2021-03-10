@@ -1,6 +1,7 @@
-import { ViewStyle } from "react-native"
+import { ViewStyle, Platform } from "react-native"
 import { isNil } from "ramda"
-import { color } from "theme"
+import { getStatusBarHeight, isIPhoneX } from "react-native-status-bar-height"
+import { color, horizontalSpacing } from "theme"
 
 /**
  * All screen keyboard offsets.
@@ -23,6 +24,9 @@ export const presets = {
    * which have built-in scrolling like FlatList.
    */
   fixed: {
+    statusBar: {
+      paddingTop: Platform.OS === "ios" ? getStatusBarHeight() : 0,
+    },
     outer: {
       backgroundColor: color.background,
       flex: 1,
@@ -33,6 +37,8 @@ export const presets = {
       alignItems: "stretch",
       height: "100%",
       width: "100%",
+      paddingTop: isIPhoneX() ? 40 : 20,
+      paddingHorizontal: 20,
     } as ViewStyle,
   },
 
@@ -42,13 +48,26 @@ export const presets = {
    * Pick this one if you don't know which one you want yet.
    */
   scroll: {
+    statusBar: {
+      paddingTop: Platform.OS === "ios" ? getStatusBarHeight() : 0,
+    },
     outer: {
       backgroundColor: color.background,
       flex: 1,
       height: "100%",
     } as ViewStyle,
-    inner: { justifyContent: "flex-start", alignItems: "stretch" } as ViewStyle,
+    inner: {
+      justifyContent: "flex-start",
+      alignItems: "stretch",
+      paddingTop: isIPhoneX() ? 40 : 20,
+      paddingHorizontal: 25,
+    } as ViewStyle,
   },
+
+  notFullWidth: {
+    paddingHorizontal: horizontalSpacing.medium,
+  } as ViewStyle,
+  fullWidth: {} as ViewStyle,
 }
 
 /**

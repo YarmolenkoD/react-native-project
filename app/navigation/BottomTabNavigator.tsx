@@ -1,34 +1,54 @@
+import * as React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { createStackNavigator } from '@react-navigation/stack'
-import * as React from 'react'
+import { enableScreens } from 'react-native-screens'
+import { createNativeStackNavigator } from "react-native-screens/native-stack"
+import { ViewStyle } from "react-native"
+import { isIphoneX } from "react-native-iphone-x-helper"
 
-import Colors from '../constants/Colors'
+enableScreens()
+
+// types
+import { BottomTabParamList, ProfileParamList, SearchParamList } from 'types'
+
+// theme
+import { color } from 'theme'
+
+// hooks
 import useColorScheme from '../hooks/useColorScheme'
-import TabOneScreen from '../screens/TabOneScreen'
-import TabTwoScreen from '../screens/TabTwoScreen'
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from 'types'
+
+// screens
+import { Profile, Search } from "screens"
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
+
+const TAB_BAR_STYLES: ViewStyle = {
+  height: isIphoneX() ? 80 : 60,
+  paddingBottom: isIphoneX() ? 20 : 15,
+}
 
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme()
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+      initialRouteName="Profile"
+      tabBarOptions={{
+        activeTintColor: color[colorScheme].primary,
+        showLabel: false,
+        style: TAB_BAR_STYLES
+      }}
     >
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneNavigator}
+        name="Search"
+        component={SearchNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Profile"
-        component={TabTwoNavigator}
+        component={ProfileNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="person-circle-outline" color={color} />,
         }}
@@ -41,30 +61,37 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
   return <Ionicons size={30} {...props} />
 }
 
-const TabOneStack = createStackNavigator<TabOneParamList>()
+const SCREEN_OPTIONS = {
+  headerShown: false,
+  gestureEnabled: true,
+}
 
-function TabOneNavigator() {
+const ProfileStack = createNativeStackNavigator<ProfileParamList>()
+
+function ProfileNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+    <ProfileStack.Navigator
+      screenOptions={SCREEN_OPTIONS}
+    >
+      <ProfileStack.Screen
+        name="Profile"
+        component={Profile}
       />
-    </TabOneStack.Navigator>
+    </ProfileStack.Navigator>
   )
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>()
+const SearchStack = createNativeStackNavigator<SearchParamList>()
 
-function TabTwoNavigator() {
+function SearchNavigator() {
   return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Profile' }}
+    <SearchStack.Navigator
+      screenOptions={SCREEN_OPTIONS}
+    >
+      <SearchStack.Screen
+        name="Search"
+        component={Search}
       />
-    </TabTwoStack.Navigator>
+    </SearchStack.Navigator>
   )
 }

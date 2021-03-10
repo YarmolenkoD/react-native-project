@@ -1,7 +1,12 @@
 import { TextStyle, TextProps as TextProperties } from "react-native"
-import { TextPresets } from "./text.presets"
+import { TextPresets, WeightPresets } from "./text.presets"
 
 export interface TextProps extends TextProperties {
+  /**
+   * If the field is loading, a PlaceholderLine will be rendered in it's place.
+   */
+  isLoading?: boolean
+
   /**
    * Children components.
    */
@@ -16,12 +21,14 @@ export interface TextProps extends TextProperties {
    * Optional options to pass to i18n. Useful for interpolation
    * as well as explicitly setting locale or translation fallbacks.
    */
-  txOptions?: I18n.TranslateOptions
+  txOptions?: object
 
   /**
    * The text to display if not using `tx` or nested components.
    */
   text?: string
+
+  placeholderStyle?: TextStyle | TextStyle[]
 
   /**
    * An optional style override useful for padding & margin.
@@ -32,4 +39,11 @@ export interface TextProps extends TextProperties {
    * One of the different types of text presets.
    */
   preset?: TextPresets
+
+  weight?: WeightPresets
+
+  /**
+   *
+   */
+  placeholderWidth?: number
 }

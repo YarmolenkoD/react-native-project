@@ -27,7 +27,7 @@
       "utils": ["./utils"],
       "types": ["./types"],
       "hooks": ["./hooks"],
-      "storybook": ["./app/storybook"]
+      "storybook": ["./storybook"]
     }
   },
   "exclude": ["node_modules"],
