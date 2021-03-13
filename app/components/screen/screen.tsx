@@ -1,11 +1,10 @@
-import * as React from "react"
-import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native"
-import { useSafeArea } from "react-native-safe-area-context"
-import { ScreenProps } from "./screen.props"
-import { isNonScrolling, offsets, presets } from "./screen.presets"
+import * as React from 'react'
+import { ImageBackground, KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native'
+import { useSafeArea } from 'react-native-safe-area-context'
+import { ScreenProps } from './screen.props'
+import { isNonScrolling, offsets, presets } from './screen.presets'
 
-const isIos = Platform.OS === "ios"
-
+const isIos = Platform.OS === 'ios'
 
 function ScreenWithoutScrolling(props: ScreenProps) {
   const insets = useSafeArea()
@@ -20,11 +19,13 @@ function ScreenWithoutScrolling(props: ScreenProps) {
 
   return (
     <KeyboardAvoidingView
-      style={[fullWidthStyle, preset.outer, preset.statusBar, backgroundStyle, statusStyle]}
-      behavior={isIos ? "padding" : null}
-      keyboardVerticalOffset={offsets[props.keyboardOffset || "none"]}
+      style={[fullWidthStyle, preset.outer, backgroundStyle, statusStyle]}
+      behavior={isIos ? 'padding' : null}
+      keyboardVerticalOffset={offsets[props.keyboardOffset || 'none']}
     >
-      <View style={[insetStyle, preset.inner, style]}>{props.children}</View>
+      <ImageBackground style={preset.outer} source={props.imageBg}>
+        <View style={[insetStyle, preset.inner, style]}>{props.children}</View>
+      </ImageBackground>
     </KeyboardAvoidingView>
   )
 }
@@ -39,21 +40,25 @@ function ScreenWithScrolling(props: ScreenProps) {
   const fullWidth = props.fullWidth || false
   const fullWidthStyle = fullWidth ? presets.fullWidth : presets.notFullWidth
 
+  const transparentBg = props.imageBg ? { backgroundColor: 'transparent' } : {}
+
   return (
     <KeyboardAvoidingView
-      style={[fullWidthStyle, preset.outer, preset.statusBar, backgroundStyle]}
-      behavior={isIos ? "padding" : null}
-      keyboardVerticalOffset={offsets[props.keyboardOffset || "none"]}
+      style={[fullWidthStyle, preset.outer, backgroundStyle]}
+      behavior={isIos ? 'padding' : null}
+      keyboardVerticalOffset={offsets[props.keyboardOffset || 'none']}
     >
-      <ScrollView
-        style={[preset.outer, backgroundStyle]}
-        contentContainerStyle={[insetStyle, preset.inner, style]}
-        keyboardShouldPersistTaps="always"
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
-      >
-        {props.children}
-      </ScrollView>
+      <ImageBackground style={preset.outer} source={props.imageBg}>
+        <ScrollView
+          style={[preset.outer, backgroundStyle, transparentBg]}
+          contentContainerStyle={[insetStyle, preset.inner, style]}
+          keyboardShouldPersistTaps="always"
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+        >
+          {props.children}
+        </ScrollView>
+      </ImageBackground>
     </KeyboardAvoidingView>
   )
 }

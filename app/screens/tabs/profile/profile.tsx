@@ -1,8 +1,8 @@
-import * as React from "react"
-import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs"
+import * as React from 'react'
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 
 // components
-import { Screen, Text } from "components"
+import { Screen, Text } from 'components'
 
 // styles
 // import Styles from "./profile.styles"

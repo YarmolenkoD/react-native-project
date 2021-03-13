@@ -1,9 +1,9 @@
 import { StyleProp } from "react-native"
-import useColorScheme from './useColorScheme'
 import { color } from "theme"
 import { Theme } from "types"
+import { useColorScheme } from "./useColorScheme"
 
-export default function useThemedStyles (styles: (theme: Theme) => StyleProp<any>, scheme?: string): object {
+export function useThemedStyles (styles: (theme: Theme) => StyleProp<any>, scheme?: string): object {
   scheme = scheme || useColorScheme()
 
   return styles({ color: color[scheme] })

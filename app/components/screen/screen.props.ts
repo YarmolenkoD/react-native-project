@@ -1,4 +1,4 @@
-import { ViewStyle } from "react-native"
+import { ViewStyle, ImageSourcePropType } from 'react-native'
 import { KeyboardOffsets, ScreenPresets } from "./screen.presets"
 
 export interface ScreenProps {
@@ -43,4 +43,8 @@ export interface ScreenProps {
    * By how much should we offset the keyboard? Defaults to none.
    */
   keyboardOffset?: KeyboardOffsets
+  /**
+   * By how much should we offset the keyboard? Defaults to none.
+   */
+  imageBg?: ImageSourcePropType
 }

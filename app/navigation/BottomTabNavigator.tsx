@@ -15,7 +15,7 @@ import { BottomTabParamList, ProfileParamList, SearchParamList } from 'types'
 import { color } from 'theme'
 
 // hooks
-import useColorScheme from '../hooks/useColorScheme'
+import { useColorScheme } from 'hooks'
 
 // screens
 import { Profile, Search } from "screens"

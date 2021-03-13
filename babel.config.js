@@ -34,6 +34,7 @@ module.exports = {
           services: "./app/services",
           theme: "./app/theme",
           utils: "./app/utils",
+          hooks: "./app/hooks",
           storybook: "./storybook",
         },
       },

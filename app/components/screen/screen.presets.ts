@@ -1,6 +1,6 @@
-import { ViewStyle, Platform } from "react-native"
+import { ViewStyle } from "react-native"
 import { isNil } from "ramda"
-import { getStatusBarHeight, isIPhoneX } from "react-native-status-bar-height"
+import { isIPhoneX } from "react-native-status-bar-height"
 import { color, horizontalSpacing } from "theme"
 
 /**
@@ -24,13 +24,11 @@ export const presets = {
    * which have built-in scrolling like FlatList.
    */
   fixed: {
-    statusBar: {
-      paddingTop: Platform.OS === "ios" ? getStatusBarHeight() : 0,
-    },
     outer: {
       backgroundColor: color.background,
       flex: 1,
       height: "100%",
+      width: '100%',
     } as ViewStyle,
     inner: {
       justifyContent: "flex-start",
@@ -48,9 +46,6 @@ export const presets = {
    * Pick this one if you don't know which one you want yet.
    */
   scroll: {
-    statusBar: {
-      paddingTop: Platform.OS === "ios" ? getStatusBarHeight() : 0,
-    },
     outer: {
       backgroundColor: color.background,
       flex: 1,
@@ -67,7 +62,9 @@ export const presets = {
   notFullWidth: {
     paddingHorizontal: horizontalSpacing.medium,
   } as ViewStyle,
-  fullWidth: {} as ViewStyle,
+  fullWidth: {
+    width: '100%'
+  } as ViewStyle,
 }
 
 /**

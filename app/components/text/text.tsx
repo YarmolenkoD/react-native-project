@@ -1,10 +1,11 @@
-import * as React from "react"
-import { Text as ReactNativeText } from "react-native"
-import { presets, placeholderPresets, weights } from "./text.presets"
-import { TextProps } from "./text.props"
-import { translate } from "i18n"
-import { mergeAll, flatten } from "ramda"
-import { Placeholder, Fade, PlaceholderLine } from "rn-placeholder"
+import * as React from 'react'
+import { Text as ReactNativeText } from 'react-native'
+import { presets, placeholderPresets, weights } from './text.presets'
+import { TextProps } from './text.props'
+import { translate } from 'i18n'
+import { mergeAll, flatten } from 'ramda'
+import { Placeholder, Fade, PlaceholderLine } from 'rn-placeholder'
+
 /**
  * For your text displaying needs.
  *
@@ -14,8 +15,8 @@ export function Text(props: TextProps) {
   // grab the props
   const {
     isLoading = false,
-    preset = "p",
-    weight = "medium",
+    preset = 'p',
+    weight = 'medium',
     placeholderWidth = 20,
     tx,
     txOptions,
@@ -44,7 +45,7 @@ export function Text(props: TextProps) {
   if (isLoading) {
     return (
       <Placeholder Animation={Fade}>
-        <PlaceholderLine style={placeholderStyle} width={placeholderWidth} />
+        <PlaceholderLine style={placeholderStyle} width={placeholderWidth}/>
       </Placeholder>
     )
   }
