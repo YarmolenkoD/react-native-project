@@ -1,5 +1,7 @@
 export type RootStackParamList = {
   Root: undefined
+  FirstSignUp: undefined
+  First: undefined
   NotFound: undefined
   Login: undefined
 }
@@ -25,6 +27,7 @@ export type ColorTheme = {
   primaryDarker: string,
   line: string,
   text: string,
+  lightText: string,
   dim: string,
   error: string,
   storybookDarkBg: string,

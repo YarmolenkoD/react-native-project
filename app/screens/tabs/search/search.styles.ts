@@ -1,4 +1,4 @@
-import useThemedStyles from "../../../hooks/useThemedStyles"
+import { useThemedStyles } from "hooks"
 
 export default useThemedStyles(({ color }) => ({
   filterContainer: {

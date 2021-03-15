@@ -1,7 +1,7 @@
-import { ViewStyle } from "react-native"
-import { isNil } from "ramda"
-import { isIPhoneX } from "react-native-status-bar-height"
-import { color, horizontalSpacing } from "theme"
+import { ViewStyle } from 'react-native'
+import { isNil } from 'ramda'
+import { isIPhoneX } from 'react-native-status-bar-height'
+import { color } from 'theme'
 
 /**
  * All screen keyboard offsets.
@@ -27,14 +27,14 @@ export const presets = {
     outer: {
       backgroundColor: color.background,
       flex: 1,
-      height: "100%",
+      height: '100%',
       width: '100%',
     } as ViewStyle,
     inner: {
-      justifyContent: "flex-start",
-      alignItems: "stretch",
-      height: "100%",
-      width: "100%",
+      justifyContent: 'flex-start',
+      alignItems: 'stretch',
+      height: '100%',
+      width: '100%',
       paddingTop: isIPhoneX() ? 40 : 20,
       paddingHorizontal: 20,
     } as ViewStyle,
@@ -49,19 +49,17 @@ export const presets = {
     outer: {
       backgroundColor: color.background,
       flex: 1,
-      height: "100%",
+      height: '100%',
     } as ViewStyle,
     inner: {
-      justifyContent: "flex-start",
-      alignItems: "stretch",
+      justifyContent: 'flex-start',
+      alignItems: 'stretch',
       paddingTop: isIPhoneX() ? 40 : 20,
       paddingHorizontal: 25,
     } as ViewStyle,
   },
 
-  notFullWidth: {
-    paddingHorizontal: horizontalSpacing.medium,
-  } as ViewStyle,
+  notFullWidth: {} as ViewStyle,
   fullWidth: {
     width: '100%'
   } as ViewStyle,
@@ -79,5 +77,5 @@ export type ScreenPresets = keyof typeof presets
  */
 export function isNonScrolling(preset: ScreenPresets) {
   // any of these things will make you scroll
-  return isNil(preset) || !preset.length || isNil(presets[preset]) || preset === "fixed"
+  return isNil(preset) || !preset.length || isNil(presets[preset]) || preset === 'fixed'
 }

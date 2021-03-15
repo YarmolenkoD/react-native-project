@@ -11,6 +11,8 @@ import { ColorTheme } from "types"
  * put that in the <Spinner /> component.
  */
 
+export const defaultTheme: string = 'light'
+
 export const color = {
   light: {
     /**
@@ -42,7 +44,11 @@ export const color = {
     /**
      * The default color of text in many components.
      */
-    text: palette.textDark,
+    text: palette.grayDarkest,
+    /**
+     * The light color of text in many components.
+     */
+    lightText: palette.white,
     /**
      * Secondary information.
      */
@@ -57,13 +63,13 @@ export const color = {
      * the text color is color.text, which is white by default, and does not show
      * in Stories against the default white background
      */
-    storybookDarkBg: palette.textDark,
+    storybookDarkBg: palette.grayDarkest,
 
     /**
      * Storybook text color for stories that display Text components against the
      * white background
      */
-    storybookTextColor: palette.textDark,
+    storybookTextColor: palette.grayDarkest,
   } as ColorTheme,
   dark: {
     /**
@@ -95,7 +101,11 @@ export const color = {
     /**
      * The default color of text in many components.
      */
-    text: palette.textDark,
+    text: palette.white,
+    /**
+     * The light color of text in many components.
+     */
+    lightText: palette.white,
     /**
      * Secondary information.
      */
@@ -110,13 +120,13 @@ export const color = {
      * the text color is color.text, which is white by default, and does not show
      * in Stories against the default white background
      */
-    storybookDarkBg: palette.textDark,
+    storybookDarkBg: palette.grayDarkest,
 
     /**
      * Storybook text color for stories that display Text components against the
      * white background
      */
-    storybookTextColor: palette.textDark,
+    storybookTextColor: palette.grayDarkest,
   } as ColorTheme,
   /**
    * The palette is available to use, but prefer using the name.
@@ -147,7 +157,7 @@ export const color = {
   /**
    * The default color of text in many components.
    */
-  text: palette.textDark,
+  text: palette.grayDarkest,
   /**
    * Secondary information.
    */
@@ -162,11 +172,11 @@ export const color = {
    * the text color is color.text, which is white by default, and does not show
    * in Stories against the default white background
    */
-  storybookDarkBg: palette.textDark,
+  storybookDarkBg: palette.grayDarkest,
 
   /**
    * Storybook text color for stories that display Text components against the
    * white background
    */
-  storybookTextColor: palette.textDark,
+  storybookTextColor: palette.grayDarkest,
 }

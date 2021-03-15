@@ -8,5 +8,4 @@ export const palette = {
   grayDark: "#717171",
   grayDarker: "#333333",
   grayDarkest: "#191919",
-  textDark: "#222222",
 }

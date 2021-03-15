@@ -3,12 +3,11 @@ import { createStackNavigator } from '@react-navigation/stack'
 import * as React from 'react'
 import { ColorSchemeName } from 'react-native'
 
-import NotFoundScreen from '../screens/NotFoundScreen'
 import { RootStackParamList } from 'types'
 import BottomTabNavigator from './BottomTabNavigator'
 import LinkingConfiguration from './LinkingConfiguration'
 
-import { Login } from "screens"
+import { Login, First, NotFound, FirstSignUp } from 'screens'
 
 export function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -16,7 +15,7 @@ export function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
       linking={LinkingConfiguration}
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
     >
-      <RootNavigator />
+      <RootNavigator/>
     </NavigationContainer>
   )
 }
@@ -25,10 +24,12 @@ const Stack = createStackNavigator<RootStackParamList>()
 
 function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+    <Stack.Navigator initialRouteName='First' screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="First" component={First}/>
+      <Stack.Screen name="FirstSignUp" component={FirstSignUp}/>
+      <Stack.Screen name="Login" component={Login}/>
+      <Stack.Screen name="Root" component={BottomTabNavigator}/>
+      <Stack.Screen name="NotFound" component={NotFound} options={{ title: 'Oops!' }}/>
     </Stack.Navigator>
   )
 }
