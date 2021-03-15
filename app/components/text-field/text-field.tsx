@@ -7,7 +7,7 @@ import { TextFieldProps } from './text-field.props'
 
 import { Text } from 'components'
 import { useColorScheme, useLocale } from 'hooks'
-import { translate } from 'i18n';
+import { translate } from 'i18n'
 
 /**
  * For your text field displaying needs.

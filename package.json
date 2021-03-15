@@ -20,6 +20,7 @@
     "prettier-write": "prettier --write **/*.{js,jsx,ts,tsx,json} && prettier --write *.{js,jsx,ts,tsx,json}"
   },
   "dependencies": {
+    "@expo-google-fonts/roboto": "^0.1.0",
     "@expo/vector-icons": "^12.0.0",
     "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "0.1.10",

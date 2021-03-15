@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "CubeGame",
-    "slug": "CubeGame",
-    "version": "1.0.0",
+    "name": "Sporty",
+    "slug": "Sporty",
+    "version": "0.0.1",
     "orientation": "portrait",
-    "icon": "./app/assets/images/icon.png",
+    "icon": "./app/assets/images/app-icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {

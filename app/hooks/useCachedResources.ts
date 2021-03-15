@@ -3,8 +3,21 @@ import * as Font from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 import * as React from 'react'
 
+import {
+  useFonts,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+} from '@expo-google-fonts/roboto'
+
 export function useCachedResources() {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false)
+
+  const [isFontsLoaded] = useFonts({
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold
+  })
 
   // Load any resources or data that we need prior to rendering the app
   React.useEffect(() => {
@@ -15,7 +28,6 @@ export function useCachedResources() {
         // Load fonts
         await Font.loadAsync({
           ...Ionicons.font,
-          'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf'),
         })
       } catch (e) {
         // We might want to provide this error information to an error reporting service
@@ -29,5 +41,5 @@ export function useCachedResources() {
     loadResourcesAndDataAsync()
   }, [])
 
-  return isLoadingComplete
+  return isLoadingComplete && isFontsLoaded
 }

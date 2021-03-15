@@ -50,9 +50,9 @@ export const fontSizes = {
 // massive:32, 48, 64, 72]
 
 export const fontWeights = {
-  regular: "Poppins-Regular",
-  medium: "Poppins-Medium",
-  bold: "Poppins-SemiBold",
+  regular: "Roboto_400Regular",
+  medium: "Roboto_500Medium",
+  bold: "Roboto_700Bold",
 }
 
 export const headerSizes = {
