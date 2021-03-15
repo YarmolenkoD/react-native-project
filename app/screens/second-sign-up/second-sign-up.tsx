@@ -22,7 +22,9 @@ export function SecondSignUp () {
     <TextField
       style={Styles.input}
       label="EMAIL"
+      labelTx="EMAIL"
       placeholder="Type your email"
+      placeholderTx="Type your email"
     />
     <TextField
       style={Styles.input}

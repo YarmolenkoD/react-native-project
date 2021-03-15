@@ -5,6 +5,7 @@ import { TextProps } from './text.props'
 import { translate } from 'i18n'
 import { mergeAll, flatten } from 'ramda'
 import { Placeholder, Fade, PlaceholderLine } from 'rn-placeholder'
+import { useLocale } from 'hooks'
 
 /**
  * For your text displaying needs.
@@ -27,8 +28,10 @@ export function Text(props: TextProps) {
     ...rest
   } = props
 
+  const locale = useLocale()
+
   // figure out which content to use
-  const i18nText = tx && translate(tx, txOptions)
+  const i18nText = tx && translate(tx, { locale, ...txOptions })
   const content = i18nText || text || children
 
   const style = mergeAll(

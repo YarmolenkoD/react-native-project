@@ -4,7 +4,19 @@
     "cancel": "Cancel",
     "back": "Back"
   },
+  "Get the court you want!": "Get the court you want!",
+  "screens": {
+    "first": {
+      "title": "Get the court you want!",
+      "signUpButton": "Create free account",
+      "facebookButton": "Continue with facebook",
+      "login": "Login",
+      "alreadyHaveAccount": "Already have an account?"
+    }
+  },
   "errors": {
     "invalidEmail": "Invalid email address."
-  }
+  },
+  "Type your email": "Type your email",
+  "EMAIL": "EMAIL"
 }

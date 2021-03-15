@@ -5,11 +5,17 @@
     "back": "Назад"
   },
   "screens": {
-    "ok": "Добре",
-    "cancel": "Скасувати",
-    "back": "Назад"
+    "first": {
+      "title": "Забронюйте спортивний зал, який хочете!",
+      "signUpButton": "Створити аккаунт",
+      "facebookButton": "Продовжити з фейсбук",
+      "login": "Увійти",
+      "alreadyHaveAccount": "Вже маєте аккаунт?"
+    }
   },
   "errors": {
     "invalidEmail": "Невірна електронна адреса."
-  }
+  },
+  "Type your email": "Введіть емейл",
+  "EMAIL": "ЕМЕЙЛ"
 }

@@ -19,24 +19,24 @@ export function First () {
   }
 
   return <Screen style={Styles.container} imageBg={images.bg}>
-    <Text style={Styles.lightText}>Get the court you want!</Text>
+    <Text tx="screens.first.title" style={Styles.lightText} />
     <View style={Styles.buttonsContainer}>
       <Button
         onPress={goTo.bind(null, 'FirstSignUp')}
-        text="Create free account"
+        tx="screens.first.signUpButton"
         style={Styles.signUpButton}
       />
       <Button
-        text="Continue with facebook"
+        tx="screens.first.facebookButton"
         style={Styles.facebookButton}
       />
       <Text
         style={[Styles.lightText]}
-        text="Already have an account?"
+        tx="screens.first.alreadyHaveAccount"
       />
       <Button
         preset="secondary"
-        text="Login"
+        tx="screens.first.login"
         style={Styles.loginButton}
       />
     </View>

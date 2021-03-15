@@ -51,7 +51,7 @@ export function Button(props: ButtonProps) {
 
   const activeOpacity = 0.7
 
-  const content = children || <Text tx={tx} text={text} style={textStyle}/>
+  const content = children || <Text tx={tx} text={text} style={textStyle} />
 
   return (
     <TouchableOpacity style={viewStyle} activeOpacity={activeOpacity} {...rest}>
