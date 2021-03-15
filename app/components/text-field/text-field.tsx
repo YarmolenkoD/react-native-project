@@ -16,7 +16,7 @@ import { useColorScheme } from 'hooks'
 export function TextField(props: TextFieldProps) {
   const {
     preset = 'default',
-    wrapperStyle: wrapperStyleOverride,
+    style: wrapperStyleOverride,
     labelStyle: labelStyleOverride,
     inputStyle: inputStyleOverride,
     label,
@@ -38,7 +38,6 @@ export function TextField(props: TextFieldProps) {
   const labelStyle = mergeAll(
     flatten([themedLabelPresets[preset], labelStyleOverride]),
   )
-
 
   return (
     <View style={wrapperStyle}>

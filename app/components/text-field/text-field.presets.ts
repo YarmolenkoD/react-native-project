@@ -10,7 +10,7 @@ import { verticalScale } from 'utils';
  */
 const TEXT_FIELD_BASE: TextStyle = {
   width: '100%',
-  height: verticalScale(46),
+  height: verticalScale(40),
   paddingHorizontal: 20,
   borderRadius: 10,
   fontSize: fontSizes.large,

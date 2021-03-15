@@ -7,7 +7,7 @@ import { RootStackParamList } from 'types'
 import BottomTabNavigator from './BottomTabNavigator'
 import LinkingConfiguration from './LinkingConfiguration'
 
-import { Login, First, NotFound, FirstSignUp } from 'screens'
+import { Login, First, NotFound, FirstSignUp, SecondSignUp } from 'screens'
 
 export function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -27,6 +27,7 @@ function RootNavigator() {
     <Stack.Navigator initialRouteName='First' screenOptions={{ headerShown: false }}>
       <Stack.Screen name="First" component={First}/>
       <Stack.Screen name="FirstSignUp" component={FirstSignUp}/>
+      <Stack.Screen name="SecondSignUp" component={SecondSignUp}/>
       <Stack.Screen name="Login" component={Login}/>
       <Stack.Screen name="Root" component={BottomTabNavigator}/>
       <Stack.Screen name="NotFound" component={NotFound} options={{ title: 'Oops!' }}/>

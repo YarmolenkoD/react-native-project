@@ -6,9 +6,9 @@ import { useThemedStyles } from 'hooks'
 import { images } from 'assets/images'
 
 // styles
-import styles from './first-sign-up.styles'
+import styles from './second-sign-up.styles'
 
-export function FirstSignUp () {
+export function SecondSignUp () {
   const navigation = useNavigation()
 
   const Styles = useThemedStyles(styles)
@@ -21,18 +21,18 @@ export function FirstSignUp () {
     <Icon icon="logo" style={Styles.logo}/>
     <TextField
       style={Styles.input}
-      label="FIRST NAME"
-      placeholder="Type your first name"
+      label="EMAIL"
+      placeholder="Type your email"
     />
     <TextField
       style={Styles.input}
-      label="LAST NAME"
-      placeholder="Type your last name"
+      label="PASSWORD"
+      placeholder="Type password"
     />
     <TextField
       style={Styles.lastInput}
-      label="PHONE NUMBER"
-      placeholder="Type your phone number"
+      label="REPEAT PASSWORD"
+      placeholder="Type password"
     />
     <Button text="Next" onPress={submit} />
   </Screen>

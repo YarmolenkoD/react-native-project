@@ -1,6 +1,7 @@
 export type RootStackParamList = {
   Root: undefined
   FirstSignUp: undefined
+  SecondSignUp: undefined
   First: undefined
   NotFound: undefined
   Login: undefined
