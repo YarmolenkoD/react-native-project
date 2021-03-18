@@ -1,7 +1,10 @@
-import { useThemedStyles } from "hooks"
+import { ViewStyle } from 'react-native'
+import { color as colorTheme, defaultTheme } from 'theme'
 
-export default useThemedStyles(({ color }) => ({
-  filterContainer: {
-    background: color.primary
-  }
-}))
+interface Styles {
+  container: ViewStyle
+}
+
+export default ({ color = colorTheme[defaultTheme] }): Styles => ({
+  container: {}
+})

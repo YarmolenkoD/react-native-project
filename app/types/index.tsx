@@ -8,12 +8,22 @@ export type RootStackParamList = {
 }
 
 export type BottomTabParamList = {
+  Inbox: undefined
+  Reservations: undefined
   Search: undefined
   Profile: undefined
 }
 
 export type SearchParamList = {
   Search: undefined
+}
+
+export type InboxParamList = {
+  Inbox: undefined
+}
+
+export type ReservationsParamList = {
+  Reservations: undefined
 }
 
 export type ProfileParamList = {

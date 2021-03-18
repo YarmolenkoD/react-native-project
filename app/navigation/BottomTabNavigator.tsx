@@ -9,7 +9,7 @@ import { isIphoneX } from "react-native-iphone-x-helper"
 enableScreens()
 
 // types
-import { BottomTabParamList, ProfileParamList, SearchParamList } from 'types'
+import { BottomTabParamList, InboxParamList, ProfileParamList, ReservationsParamList, SearchParamList } from 'types'
 
 // theme
 import { color } from 'theme'
@@ -18,7 +18,7 @@ import { color } from 'theme'
 import { useColorScheme } from 'hooks'
 
 // screens
-import { Profile, Search } from "screens"
+import { Inbox, Profile, Reservations, Search } from 'screens'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -39,6 +39,20 @@ export default function BottomTabNavigator() {
         style: TAB_BAR_STYLES
       }}
     >
+      <BottomTab.Screen
+        name="Inbox"
+        component={InboxNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="chatbox" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Reservations"
+        component={ReservationsNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="basketball" color={color} />,
+        }}
+      />
       <BottomTab.Screen
         name="Search"
         component={SearchNavigator}
@@ -93,5 +107,36 @@ function SearchNavigator() {
         component={Search}
       />
     </SearchStack.Navigator>
+  )
+}
+
+const InboxStack = createNativeStackNavigator<InboxParamList>()
+
+function InboxNavigator() {
+  return (
+    <InboxStack.Navigator
+      screenOptions={SCREEN_OPTIONS}
+    >
+      <InboxStack.Screen
+        name="Inbox"
+        component={Inbox}
+      />
+    </InboxStack.Navigator>
+  )
+}
+
+
+const ReservationsStack = createNativeStackNavigator<ReservationsParamList>()
+
+function ReservationsNavigator() {
+  return (
+    <ReservationsStack.Navigator
+      screenOptions={SCREEN_OPTIONS}
+    >
+      <ReservationsStack.Screen
+        name="Reservations"
+        component={Reservations}
+      />
+    </ReservationsStack.Navigator>
   )
 }
