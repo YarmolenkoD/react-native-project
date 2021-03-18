@@ -2,21 +2,39 @@
   "common": {
     "ok": "OK!",
     "cancel": "Cancel",
-    "back": "Back"
+    "back": "Back",
+    "next": "Next"
   },
   "Get the court you want!": "Get the court you want!",
   "screens": {
     "first": {
       "title": "Get the court you want!",
-      "signUpButton": "Create free account",
-      "facebookButton": "Continue with facebook",
-      "login": "Login",
-      "alreadyHaveAccount": "Already have an account?"
+      "already-have-account": "Already have an account?",
+      "button": {
+        "sign-up": "Create free account",
+        "facebook": "Continue with facebook",
+        "login": "Login"
+      }
+    },
+    "sign-up": {
+      "label": {
+        "first-name": "FIRST NAME",
+        "last-name": "LAST NAME",
+        "number": "PHONE NUMBER",
+        "email": "EMAIL",
+        "password": "PASSWORD",
+        "repeat-password": "REPEAT PASSWORD"
+      },
+      "placeholder": {
+        "first-name": "Type your first name",
+        "last-name": "Type your last name",
+        "number": "Type your phone number",
+        "email": "Type your email",
+        "password": "Type password"
+      }
     }
   },
   "errors": {
     "invalidEmail": "Invalid email address."
-  },
-  "Type your email": "Type your email",
-  "EMAIL": "EMAIL"
+  }
 }

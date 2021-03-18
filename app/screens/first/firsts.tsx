@@ -23,20 +23,20 @@ export function First () {
     <View style={Styles.buttonsContainer}>
       <Button
         onPress={goTo.bind(null, 'FirstSignUp')}
-        tx="screens.first.signUpButton"
+        tx="screens.first.button.sign-up"
         style={Styles.signUpButton}
       />
       <Button
-        tx="screens.first.facebookButton"
+        tx="screens.first.button.facebook"
         style={Styles.facebookButton}
       />
       <Text
         style={[Styles.lightText]}
-        tx="screens.first.alreadyHaveAccount"
+        tx="screens.first.already-have-account"
       />
       <Button
         preset="secondary"
-        tx="screens.first.login"
+        tx="screens.first.button.login"
         style={Styles.loginButton}
       />
     </View>

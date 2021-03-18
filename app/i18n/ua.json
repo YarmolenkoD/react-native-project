@@ -2,20 +2,38 @@
   "common": {
     "ok": "Добре",
     "cancel": "Скасувати",
-    "back": "Назад"
+    "back": "Назад",
+    "next": "Далі"
   },
   "screens": {
     "first": {
       "title": "Забронюйте спортивний зал, який хочете!",
-      "signUpButton": "Створити аккаунт",
-      "facebookButton": "Продовжити з фейсбук",
-      "login": "Увійти",
-      "alreadyHaveAccount": "Вже маєте аккаунт?"
+      "already-have-account": "Вже маєте аккаунт?",
+      "button": {
+        "sign-up": "Створити аккаунт",
+        "facebook": "Продовжити з фейсбук",
+        "login": "Увійти"
+      }
+    },
+    "sign-up": {
+      "label": {
+        "first-name": "ІМ'Я",
+        "last-name": "ФАМІЛІЯ",
+        "number": "ТЕЛЕФОННИЙ НОМЕР",
+        "email": "ЕМЕЙЛ",
+        "password": "ПАРОЛЬ",
+        "repeat-password": "ПОВТОРИТИ ПАРОЛЬ"
+      },
+      "placeholder": {
+        "first-name": "Введіть ваше ім'я",
+        "last-name": "Введіть вашу фамілію",
+        "number": "Введіть телефонний номер",
+        "email": "Введіть електронну адресу",
+        "password": "Введіть пароль"
+      }
     }
   },
   "errors": {
     "invalidEmail": "Невірна електронна адреса."
-  },
-  "Type your email": "Введіть емейл",
-  "EMAIL": "ЕМЕЙЛ"
+  }
 }

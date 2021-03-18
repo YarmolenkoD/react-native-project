@@ -21,19 +21,19 @@ export function FirstSignUp () {
     <Icon icon="logo" style={Styles.logo}/>
     <TextField
       style={Styles.input}
-      label="FIRST NAME"
-      placeholder="Type your first name"
+      labelTx="screens.sign-up.label.first-name"
+      placeholderTx="screens.sign-up.placeholder.first-name"
     />
     <TextField
       style={Styles.input}
-      label="LAST NAME"
-      placeholder="Type your last name"
+      labelTx="screens.sign-up.label.last-name"
+      placeholderTx="screens.sign-up.placeholder.last-name"
     />
     <TextField
       style={Styles.lastInput}
-      label="PHONE NUMBER"
-      placeholder="Type your phone number"
+      labelTx="screens.sign-up.label.number"
+      placeholderTx="screens.sign-up.placeholder.number"
     />
-    <Button text="Next" onPress={submit} />
+    <Button tx="common.next" onPress={submit} />
   </Screen>
 }

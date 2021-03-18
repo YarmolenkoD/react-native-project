@@ -14,28 +14,26 @@ export function SecondSignUp () {
   const Styles = useThemedStyles(styles)
 
   const submit = () => {
-    navigation.navigate('SecondSignUp')
+    navigation.navigate('Root')
   }
 
   return <Screen style={Styles.container} imageBg={images.bg}>
     <Icon icon="logo" style={Styles.logo}/>
     <TextField
       style={Styles.input}
-      label="EMAIL"
-      labelTx="EMAIL"
-      placeholder="Type your email"
-      placeholderTx="Type your email"
+      labelTx="screens.sign-up.label.email"
+      placeholderTx="screens.sign-up.placeholder.email"
     />
     <TextField
       style={Styles.input}
-      label="PASSWORD"
-      placeholder="Type password"
+      labelTx="screens.sign-up.label.password"
+      placeholderTx="screens.sign-up.placeholder.password"
     />
     <TextField
       style={Styles.lastInput}
-      label="REPEAT PASSWORD"
-      placeholder="Type password"
+      labelTx="screens.sign-up.label.repeat-password"
+      placeholderTx="screens.sign-up.placeholder.password"
     />
-    <Button text="Next" onPress={submit} />
+    <Button tx="common.next" onPress={submit} />
   </Screen>
 }
