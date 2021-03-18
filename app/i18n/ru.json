@@ -1,0 +1,39 @@
+{
+  "common": {
+    "ok": "Хорошо",
+    "cancel": "Отменить",
+    "back": "Назад",
+    "next": "Дальше"
+  },
+  "screens": {
+    "first": {
+      "title": "Забронируйте спортзал в пару кликов!",
+      "already-have-account": "Уже есть аккаунт?",
+      "button": {
+        "sign-up": "Создать аккаунт",
+        "facebook": "Продолжить с фейсбук",
+        "login": "Зайти"
+      }
+    },
+    "sign-up": {
+      "label": {
+        "first-name": "ИМЯ",
+        "last-name": "ФАМИЛИЯ",
+        "number": "МОБИЛЬНЫЙ НОМЕР",
+        "email": "ЭМЕЙЛ",
+        "password": "ПАРОЛЬ",
+        "repeat-password": "ПОВТОРИТЬ ПАРОЛЬ"
+      },
+      "placeholder": {
+        "first-name": "Введите ваше имя",
+        "last-name": "Введите вашу фамилию",
+        "number": "Введите мобильный номер",
+        "email": "Введите эмейл",
+        "password": "Введите пароль"
+      }
+    }
+  },
+  "errors": {
+    "invalidEmail": "Неправильный эмейл."
+  }
+}
