@@ -25,7 +25,7 @@ interface ReservationsProps {
 export function Reservations(props: ReservationsProps) {
   const Styles = useThemedStyles(styles)
 
-  return <Screen preset="scroll" fullWidth>
+  return <Screen>
     <Text preset="h2">
       Reservations
     </Text>

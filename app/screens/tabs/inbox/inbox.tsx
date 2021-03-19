@@ -24,7 +24,7 @@ interface InboxProps {
 export function Inbox(props: InboxProps) {
   const Styles = useThemedStyles(styles)
 
-  return <Screen preset="scroll" fullWidth>
+  return <Screen>
     <Text preset="h2">
       Inbox
     </Text>

@@ -20,7 +20,7 @@ interface ProfileScreenProps {
 
 export function Profile(props: ProfileScreenProps) {
 
-  return <Screen preset="scroll" fullWidth>
+  return <Screen>
     <Text preset="h2">
       Profile
     </Text>

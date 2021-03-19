@@ -61,8 +61,14 @@ export const presets = {
 
   notFullWidth: {} as ViewStyle,
   fullWidth: {
-    width: '100%'
-  } as ViewStyle,
+    outer: {
+      width: '100%'
+    } as ViewStyle,
+    inner: {
+      paddingTop: 0,
+      paddingHorizontal: 0,
+    } as ViewStyle,
+  },
 }
 
 /**

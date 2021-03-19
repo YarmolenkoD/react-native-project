@@ -15,16 +15,21 @@ function ScreenWithoutScrolling(props: ScreenProps) {
   const insetStyle = { paddingTop: props.unsafe ? 0 : insets.top }
 
   const fullWidth = props.fullWidth || false
-  const fullWidthStyle = fullWidth ? presets.fullWidth : presets.notFullWidth
+  const outerFullWidthStyle = fullWidth ? presets.fullWidth.outer : presets.notFullWidth
+  const innerFullWidthStyle = fullWidth ? presets.fullWidth.inner : presets.notFullWidth
+
+  const transparentBg = props.imageBg ? { backgroundColor: 'transparent' } : {}
 
   return (
     <KeyboardAvoidingView
-      style={[fullWidthStyle, preset.outer, backgroundStyle, statusStyle]}
+      style={[preset.outer, backgroundStyle, outerFullWidthStyle, statusStyle]}
       behavior={isIos ? 'padding' : null}
       keyboardVerticalOffset={offsets[props.keyboardOffset || 'none']}
     >
       <ImageBackground style={preset.outer} source={props.imageBg}>
-        <View style={[insetStyle, preset.inner, style]}>{props.children}</View>
+        <View style={[insetStyle, preset.inner, innerFullWidthStyle, transparentBg, style]}>
+          {props.children}
+        </View>
       </ImageBackground>
     </KeyboardAvoidingView>
   )
@@ -38,19 +43,20 @@ function ScreenWithScrolling(props: ScreenProps) {
   const insetStyle = { paddingTop: props.unsafe ? 0 : insets.top }
 
   const fullWidth = props.fullWidth || false
-  const fullWidthStyle = fullWidth ? presets.fullWidth : presets.notFullWidth
+  const outerFullWidthStyle = fullWidth ? presets.fullWidth.outer : presets.notFullWidth
+  const innerFullWidthStyle = fullWidth ? presets.fullWidth.inner : presets.notFullWidth
 
   const transparentBg = props.imageBg ? { backgroundColor: 'transparent' } : {}
 
   return (
     <KeyboardAvoidingView
-      style={[fullWidthStyle, preset.outer, backgroundStyle]}
+      style={[preset.outer, outerFullWidthStyle, backgroundStyle]}
       behavior={isIos ? 'padding' : null}
       keyboardVerticalOffset={offsets[props.keyboardOffset || 'none']}
     >
       <ImageBackground style={preset.outer} source={props.imageBg}>
         <ScrollView
-          style={[preset.outer, backgroundStyle, transparentBg]}
+          style={[preset.outer, innerFullWidthStyle, backgroundStyle, transparentBg]}
           contentContainerStyle={[insetStyle, preset.inner, style]}
           keyboardShouldPersistTaps="always"
           showsHorizontalScrollIndicator={false}

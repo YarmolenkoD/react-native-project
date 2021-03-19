@@ -1,11 +1,15 @@
-import * as React from "react"
-import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs"
+import * as React from 'react'
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 
 // components
-import { Screen, Text } from "components"
+import { Screen, Text } from 'components'
+import { Map } from './map/map'
+
+// hooks
+import { useThemedStyles } from 'hooks'
 
 // styles
-// import Styles from "./search.styles"
+import styles from './search.styles'
 
 interface ScreenParams {
 
@@ -19,10 +23,11 @@ interface SearchScreenProps {
 }
 
 export function Search(props: SearchScreenProps) {
+  const Styles = useThemedStyles(styles)
 
-  return <Screen preset="scroll" fullWidth>
-    <Text preset="h2">
-      Search
-    </Text>
+  return <Screen fullWidth>
+    <Map>
+      <Text>HELLO</Text>
+    </Map>
   </Screen>
 }
