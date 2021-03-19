@@ -27,8 +27,7 @@
       "utils": ["./utils"],
       "types": ["./types"],
       "hooks": ["./hooks"],
-      "storybook": ["./storybook"],
-      "redux-store": ["./redux-store"]
+      "storybook": ["./storybook"]
     }
   },
   "exclude": ["node_modules"],

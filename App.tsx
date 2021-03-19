@@ -5,7 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { useCachedResources, useColorScheme } from 'hooks'
 import { Navigation } from 'navigation'
 
-import { ReduxProvider } from 'redux-store'
+import { ReduxProvider } from './app/redux-store'
 
 export default function App() {
   const isLoadingComplete = useCachedResources()

@@ -1,6 +1,6 @@
 import produce from 'immer'
 
-import { SET_USER, LOGOUT } from 'redux-store'
+import { SET_USER, LOGOUT } from '../actions'
 import { User, Action } from 'types'
 
 const REDUCER = 'USER'
