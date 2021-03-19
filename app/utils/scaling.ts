@@ -11,4 +11,6 @@ const verticalScale = size => (height / guidelineBaseHeight) * size
 const moderateScale = (size, factor = 0.5) =>
   size + (scale(size) - size) * factor
 
-export { scale, verticalScale, moderateScale }
+const deviceSizes = { width, height }
+
+export { scale, verticalScale, moderateScale, deviceSizes }
