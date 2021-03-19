@@ -48,3 +48,17 @@ export type ColorTheme = {
 export interface Theme {
   color: ColorTheme
 }
+
+export interface User {
+  firstName: string
+  lastName: string
+  email: string
+}
+
+export interface Action {
+  type: string;
+  state?: {
+    prop: string;
+    value: any;
+  }
+}

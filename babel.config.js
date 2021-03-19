@@ -36,6 +36,7 @@ module.exports = {
           utils: "./app/utils",
           hooks: "./app/hooks",
           storybook: "./storybook",
+          'redux-store': "./redux-store",
         },
       },
     ],
