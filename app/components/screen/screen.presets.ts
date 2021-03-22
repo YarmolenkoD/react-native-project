@@ -1,7 +1,7 @@
 import { ViewStyle } from 'react-native'
 import { isNil } from 'ramda'
 import { isIPhoneX } from 'react-native-status-bar-height'
-import { color } from 'theme'
+import { color, horizontalSpacing } from 'theme'
 
 /**
  * All screen keyboard offsets.
@@ -36,7 +36,7 @@ export const presets = {
       height: '100%',
       width: '100%',
       paddingTop: isIPhoneX() ? 40 : 20,
-      paddingHorizontal: 20,
+      paddingHorizontal: horizontalSpacing.large,
     } as ViewStyle,
   },
 
@@ -55,7 +55,7 @@ export const presets = {
       justifyContent: 'flex-start',
       alignItems: 'stretch',
       paddingTop: isIPhoneX() ? 40 : 20,
-      paddingHorizontal: 25,
+      paddingHorizontal: horizontalSpacing.large,
     } as ViewStyle,
   },
 
