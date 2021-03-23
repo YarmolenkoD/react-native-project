@@ -11,6 +11,7 @@ export function Avatar (props: AvatarProps) {
     containerStyle: containerOverrideStyle,
     style: styleOverride,
     size = 'medium',
+    preset = 'default',
     image,
   } = props
 
@@ -18,7 +19,10 @@ export function Avatar (props: AvatarProps) {
   const sizeContainerStyles = sizePresets[size]
   const sizeImageStyles = sizePresets[size]
 
-  return <View style={[sizeContainerStyles, containerOverrideStyle]}>
-    <Image style={[sizeImageStyles, styleOverride]} source={avatar} />
+  const presetContainerStyles = presets[preset]
+  const presetImageStyles = presets[preset]
+
+  return <View style={[presetContainerStyles, sizeContainerStyles, containerOverrideStyle]}>
+    <Image style={[presetImageStyles, sizeImageStyles, styleOverride]} source={avatar} />
   </View>
 }

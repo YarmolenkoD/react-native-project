@@ -19,6 +19,7 @@ export const sizePresets = {
     image: {
       width: moderateScale(70),
       height: moderateScale(70),
+      borderRadius: moderateScale(35),
     }
   },
   medium: {
