@@ -5,16 +5,11 @@ import { User, Action } from 'types'
 
 const REDUCER = 'USER'
 
-export interface UserState {
-  user: User
-}
-
-const initialState: UserState = {
-  user: {
-    firstName: '',
-    lastName: '',
-    email: '',
-  }
+const initialState: User | null = {
+  firstName: 'John',
+  lastName: 'White',
+  email: 'john.white@yopmail.com',
+  avatar: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
 }
 
 export default function reducer(state = initialState, action: Action) {
@@ -23,7 +18,7 @@ export default function reducer(state = initialState, action: Action) {
       if (action.state) {
         const { prop, value } = action.state
         return produce(state, newState => {
-          newState[prop as keyof UserState] = value
+          newState[prop as keyof User] = value
         })
       }
       return state

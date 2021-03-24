@@ -16,6 +16,7 @@
     "skipLibCheck": true,
     "baseUrl": "./app",
     "paths": {
+      "store": ["./redux-store"],
       "assets": ["./assets"],
       "components": ["./components"],
       "i18n": ["./i18n"],

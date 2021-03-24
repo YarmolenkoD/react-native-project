@@ -25,6 +25,7 @@ module.exports = {
         ],
         root: ["./app"],
         alias: {
+          store: "./app/redux-store",
           assets: "./app/assets",
           components: "./app/components",
           i18n: "./app/i18n",

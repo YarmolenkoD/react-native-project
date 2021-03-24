@@ -3,8 +3,8 @@ import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 import { View } from 'react-native'
 
 // components
-import { Screen, Text } from 'components'
-import { useThemedStyles } from 'hooks'
+import { Avatar, Screen, Text } from 'components'
+import { useThemedStyles, useUser, useLogout } from 'hooks'
 
 // styles
 import styles from './profile.styles'
@@ -22,10 +22,12 @@ interface ProfileScreenProps {
 
 export function Profile(props: ProfileScreenProps) {
   const Styles = useThemedStyles(styles)
+  const user = useUser()
+  const logout = useLogout()
 
   return <Screen fullWidth>
     <View style={Styles.header}>
-
+      <Avatar size="large" />
     </View>
     <Text preset="h2">
       Profile
