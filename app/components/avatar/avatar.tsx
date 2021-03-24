@@ -16,8 +16,8 @@ export function Avatar (props: AvatarProps) {
   } = props
 
   const avatar = image || images.avatarPlaceholder
-  const sizeContainerStyles = sizePresets[size]
-  const sizeImageStyles = sizePresets[size]
+  const sizeContainerStyles = sizePresets[size].container
+  const sizeImageStyles = sizePresets[size].image
 
   const presetContainerStyles = presets[preset]
   const presetImageStyles = presets[preset]

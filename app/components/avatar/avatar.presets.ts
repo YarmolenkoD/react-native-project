@@ -9,24 +9,49 @@ export const presets = {
   }
 }
 
+const LARGE_BASE_STYLES = {
+  width: moderateScale(70),
+  height: moderateScale(70),
+  borderRadius: moderateScale(35)
+}
+
+const MEDIUM_BASE_STYLES = {
+  width: moderateScale(40),
+  height: moderateScale(40),
+  borderRadius: moderateScale(20)
+}
+
+const SMALL_BASE_STYLES = {
+  width: moderateScale(20),
+  height: moderateScale(20),
+  borderRadius: moderateScale(10)
+}
+
+
 export const sizePresets = {
   large: {
     container: {
-      width: moderateScale(70),
-      height: moderateScale(70),
-      borderRadius: moderateScale(35)
+      ...LARGE_BASE_STYLES
     },
     image: {
-      width: moderateScale(70),
-      height: moderateScale(70),
-      borderRadius: moderateScale(35),
+      ...LARGE_BASE_STYLES
     }
   },
   medium: {
-
+    container: {
+      ...MEDIUM_BASE_STYLES
+    },
+    image: {
+      ...MEDIUM_BASE_STYLES
+    }
   },
   small: {
-
+    container: {
+      ...SMALL_BASE_STYLES
+    },
+    image: {
+      ...SMALL_BASE_STYLES
+    }
   }
 }
 /**

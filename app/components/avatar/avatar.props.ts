@@ -23,11 +23,11 @@ export interface AvatarProps {
    * The avatar size
    */
 
-  size: AvatarSizesPresets
+  size?: AvatarSizesPresets
 
   /**
    * The avatar presets
    */
 
-  preset: AvatarPresets
+  preset?: AvatarPresets
 }
