@@ -27,7 +27,7 @@ export function Profile(props: ProfileScreenProps) {
 
   return <Screen fullWidth>
     <View style={Styles.header}>
-      <Avatar size="large" />
+      <Avatar src={user.avatar} size="large" />
     </View>
     <Text preset="h2">
       Profile

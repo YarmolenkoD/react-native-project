@@ -17,7 +17,7 @@ export interface AvatarProps {
    * The image source
    */
 
-  image?: ImageSourcePropType
+  src?: ImageSourcePropType
 
   /**
    * The avatar size
