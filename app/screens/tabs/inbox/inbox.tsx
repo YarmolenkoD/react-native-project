@@ -5,7 +5,7 @@ import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 import { Screen, Text } from 'components'
 
 // hooks
-import { useThemedStyles } from 'hooks'
+import { useStyles } from 'hooks'
 
 // styles
 import styles from "./inbox.styles"
@@ -22,7 +22,7 @@ interface InboxProps {
 }
 
 export function Inbox(props: InboxProps) {
-  const Styles = useThemedStyles(styles)
+  const Styles = useStyles(styles)
 
   return <Screen>
     <Text preset="h2">

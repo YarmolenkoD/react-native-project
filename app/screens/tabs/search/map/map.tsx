@@ -3,7 +3,7 @@ import MapView from 'react-native-maps'
 import { View } from 'react-native'
 
 // hooks
-import { useThemedStyles } from 'hooks'
+import { useStyles } from 'hooks'
 
 // styles
 import styles from './map.styles'
@@ -14,7 +14,7 @@ interface MapProps {
 }
 
 export function Map (props: MapProps) {
-  const Styles = useThemedStyles(styles)
+  const Styles = useStyles(styles)
 
   return <View style={Styles.container}>
     <MapView style={Styles.map} />

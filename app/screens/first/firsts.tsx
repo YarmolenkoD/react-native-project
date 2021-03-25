@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import { useNavigation } from "@react-navigation/native"
 
 import { Screen, Text, Button } from 'components'
-import { useThemedStyles } from 'hooks'
+import { useStyles } from 'hooks'
 import { images } from 'assets/images'
 
 // styles
@@ -12,7 +12,7 @@ import styles from './first.styles'
 export function First () {
   const navigation = useNavigation()
 
-  const Styles = useThemedStyles(styles)
+  const Styles = useStyles(styles)
 
   const goTo = (screen) => {
     navigation.navigate(screen)

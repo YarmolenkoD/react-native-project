@@ -6,11 +6,12 @@ interface Styles {
   header: ViewStyle
 }
 
-export default ({ color = colorTheme[defaultTheme] }): Styles => ({
+export default ({ color = colorTheme[defaultTheme], insets }): Styles => ({
   container: {},
   header: {
     alignItems: 'center',
-    paddingVertical: verticalSpacing.large,
+    paddingTop: insets.top + verticalSpacing.medium,
+    paddingBottom: verticalSpacing.large,
     paddingHorizontal: horizontalSpacing.large,
     backgroundColor: color.primary,
   }

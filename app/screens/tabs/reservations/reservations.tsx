@@ -5,7 +5,7 @@ import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 import { Screen, Text } from 'components'
 
 // hooks
-import { useThemedStyles } from 'hooks'
+import { useStyles } from 'hooks'
 
 // styles
 import styles from "./reservations.styles"
@@ -23,7 +23,7 @@ interface ReservationsProps {
 }
 
 export function Reservations(props: ReservationsProps) {
-  const Styles = useThemedStyles(styles)
+  const Styles = useStyles(styles)
 
   return <Screen>
     <Text preset="h2">

@@ -1,4 +1,4 @@
-export * from './useThemedStyles'
+export * from './useStyles'
 export * from './useCachedResources'
 export * from './useColorScheme'
 export * from './useLocale'

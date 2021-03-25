@@ -1,3 +1,5 @@
+import { EdgeInsets } from 'react-native-safe-area-context/src/SafeArea.types'
+
 export type RootStackParamList = {
   Root: undefined
   FirstSignUp: undefined
@@ -46,7 +48,8 @@ export type ColorTheme = {
 }
 
 export interface Theme {
-  color: ColorTheme
+  color: ColorTheme,
+  insets: EdgeInsets
 }
 
 export interface User {

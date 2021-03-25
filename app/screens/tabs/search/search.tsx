@@ -6,7 +6,7 @@ import { Screen, Text } from 'components'
 import { Map } from './map/map'
 
 // hooks
-import { useThemedStyles } from 'hooks'
+import { useStyles } from 'hooks'
 
 // styles
 import styles from './search.styles'
@@ -23,7 +23,7 @@ interface SearchScreenProps {
 }
 
 export function Search(props: SearchScreenProps) {
-  const Styles = useThemedStyles(styles)
+  const Styles = useStyles(styles)
 
   return <Screen fullWidth>
     <Map>

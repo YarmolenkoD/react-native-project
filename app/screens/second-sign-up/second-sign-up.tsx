@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useNavigation } from "@react-navigation/native"
 
 import { Screen, Button, Icon, TextField } from 'components'
-import { useThemedStyles } from 'hooks'
+import { useStyles } from 'hooks'
 import { images } from 'assets/images'
 
 // styles
@@ -11,7 +11,7 @@ import styles from './second-sign-up.styles'
 export function SecondSignUp () {
   const navigation = useNavigation()
 
-  const Styles = useThemedStyles(styles)
+  const Styles = useStyles(styles)
 
   const submit = () => {
     navigation.navigate('Root')
