@@ -46,4 +46,9 @@ export interface TextProps extends TextProperties {
    *
    */
   placeholderWidth?: number
+
+  /**
+   * Optional options to make light color for text
+   */
+  light?: boolean
 }

@@ -32,6 +32,11 @@
         "email": "Type your email",
         "password": "Type password"
       }
+    },
+    "profile": {
+      "button": {
+        "logout": "logout"
+      }
     }
   },
   "errors": {

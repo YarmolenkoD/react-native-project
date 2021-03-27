@@ -5,7 +5,8 @@ import { TextProps } from './text.props'
 import { translate } from 'i18n'
 import { mergeAll, flatten } from 'ramda'
 import { Placeholder, Fade, PlaceholderLine } from 'rn-placeholder'
-import { useLocale } from 'hooks'
+import { useColorScheme, useLocale } from 'hooks'
+import { color } from 'theme'
 
 /**
  * For your text displaying needs.
@@ -23,23 +24,36 @@ export function Text(props: TextProps) {
     txOptions,
     text,
     children,
+    light,
     style: styleOverride,
     placeholderStyle: placeholderStyleOverride,
     ...rest
   } = props
 
   const locale = useLocale()
+  const scheme = useColorScheme()
 
   // figure out which content to use
   const i18nText = tx && translate(tx, { locale, ...txOptions })
   const content = i18nText || text || children
 
+  const colorStyles = light ? { color: color[scheme].lightText } : {}
+
   const style = mergeAll(
-    flatten([presets[preset] || presets.p, weights[weight] || weights.medium, styleOverride]),
+    flatten([
+      presets[preset] || presets.p,
+      weights[weight] || weights.medium,
+      styleOverride,
+      colorStyles
+    ]),
   )
 
   const placeholderStyle = mergeAll(
-    flatten([placeholderPresets[preset], placeholderPresets.p, placeholderStyleOverride]),
+    flatten([
+      placeholderPresets[preset],
+      placeholderPresets.p,
+      placeholderStyleOverride,
+    ]),
   )
 
   /**
