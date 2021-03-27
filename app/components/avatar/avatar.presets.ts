@@ -10,9 +10,9 @@ export const presets = {
 }
 
 const LARGE_BASE_STYLES = {
-  width: moderateScale(70),
-  height: moderateScale(70),
-  borderRadius: moderateScale(35)
+  width: moderateScale(74),
+  height: moderateScale(74),
+  borderRadius: moderateScale(37)
 }
 
 const MEDIUM_BASE_STYLES = {
