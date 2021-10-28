@@ -34,6 +34,11 @@
       "profile": {
         "button": {
           "logout": "вийти"
+        },
+        "menu": {
+          "settings": "Налаштування",
+          "payments": "Платежі",
+          "favorites": "Вибране"
         }
       }
     }

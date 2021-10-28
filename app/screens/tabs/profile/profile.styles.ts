@@ -8,6 +8,8 @@ interface Styles {
   avatarContainer: ViewStyle
   logoutButton: ViewStyle
   logoutIcon: ImageStyle
+  paddingContainer: ViewStyle
+  menuItem: ViewStyle
 }
 
 export default ({ color = colorTheme[defaultTheme], insets }): Styles => ({
@@ -34,4 +36,11 @@ export default ({ color = colorTheme[defaultTheme], insets }): Styles => ({
     height: moderateScale(24),
     marginRight: horizontalSpacing.tiny
   },
+  paddingContainer: {
+
+  },
+  menuItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  }
 })

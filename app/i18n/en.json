@@ -36,6 +36,11 @@
     "profile": {
       "button": {
         "logout": "logout"
+      },
+      "menu": {
+        "settings": "Settings",
+        "payments": "Payments",
+        "favorites": "Favorites"
       }
     }
   },

@@ -2,6 +2,9 @@ import * as React from 'react'
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 import { TouchableOpacity, View } from 'react-native'
 
+// types
+import { IconTypes } from '../../../components/icon/icons'
+
 // components
 import { Avatar, Icon, Screen, Text } from 'components'
 import { useStyles, useUser } from 'hooks'
@@ -20,10 +23,44 @@ interface ProfileScreenProps {
   }
 }
 
+interface IProfileMenuItem {
+  label: string
+  icon: IconTypes
+  action: () => void
+}
+
+const PROFILE_MENU_ITEMS: IProfileMenuItem[] = [
+  {
+    label: 'screens.profile.menu.settings',
+    icon: 'settings',
+    action: null
+  },
+  {
+    label: 'screens.profile.menu.payments',
+    icon: 'card',
+    action: null
+  },
+  {
+    label: 'screens.profile.menu.favorites',
+    icon: 'favorite',
+    action: null
+  },
+]
+
 export function Profile(props: ProfileScreenProps) {
   const Styles = useStyles(styles)
 
   const user = useUser()
+
+  const renderMenuItem = ({ icon, label, action }: IProfileMenuItem) => {
+    return <TouchableOpacity onPress={action} style={Styles.menuItem}>
+      <Icon
+        icon={icon}
+        style={Styles.menuIcon}
+      />
+      <Text tx={label} />
+    </TouchableOpacity>
+  }
 
   const renderLogoutButton = () => {
     return <TouchableOpacity
@@ -53,8 +90,8 @@ export function Profile(props: ProfileScreenProps) {
         {user.email}
       </Text>
     </View>
-    <Text preset="h2">
-      Profile
-    </Text>
+    <View>
+      {PROFILE_MENU_ITEMS.map(renderMenuItem)}
+    </View>
   </Screen>
 }
